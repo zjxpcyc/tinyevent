@@ -6,7 +6,7 @@ type Action func(Event) error
 // Event 事件
 type Event struct {
 	Name    string
-	Payload []byte
+	Payload interface{}
 }
 
 // EventBus 中控
