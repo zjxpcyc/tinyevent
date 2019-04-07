@@ -11,7 +11,7 @@ var tbus = &tinyevent.DefaultBus{}
 var gStr = "foo"
 
 func on(name string) string {
-	return tbus.On(name, func(evt tinyevent.Event) error {
+	return tbus.On(name, func(dt interface{}) error {
 		gStr = "bar"
 		return nil
 	})

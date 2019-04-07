@@ -1,7 +1,7 @@
 package tinyevent
 
 // Action 动作
-type Action func(Event) error
+type Action func(interface{}) error
 
 // EventName 事件名称
 type EventName = string

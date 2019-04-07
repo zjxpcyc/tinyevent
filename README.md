@@ -4,7 +4,7 @@
 
 ## Install
 ```bash
-go get github.com/zjxpcyc/tinyevent
+go get github.com/zjxpcyc/tinyevent@va.b.c
 ```
 
 ## Useage
@@ -12,6 +12,7 @@ go get github.com/zjxpcyc/tinyevent
 ```golang
 
 // 初始化一个中控中心
+// 或者自己实现一个 满足接口 EventBus 即可
 var evtBus := &tinyevent.DefaultBus{}
 
 // 声明一个事件
@@ -24,8 +25,12 @@ evtID := evtBus.On(
   // 事件的名称
   EvtStart,
   // 事件需要执行的动作
-  func(evt tinyevent.Event) error {
-    // TODO
+  func(data interface{}) error {
+
+    // 下面是事件动作的具体内容
+    someStr, _ := data.(string)
+    fmt.Println(someStr)
+    
     return nil
   }
 )
@@ -33,7 +38,7 @@ evtID := evtBus.On(
 // 触发事件执行 - 此处是 go 线程执行
 evt := tinyevent.Event {
   Name: EvtStart,
-  Payload: []byte(`这里是需要传入的数据`),
+  Payload: "这个字符串将会被打印-在本示例中",
 }
 evtBus.Emit(evt)
 

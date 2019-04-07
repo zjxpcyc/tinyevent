@@ -77,7 +77,7 @@ func (t *DefaultBus) execAction(exec Action, evt Event) {
 		return
 	}
 
-	go exec(evt)
+	go exec(evt.Payload)
 }
 
 var bus EventBus = &DefaultBus{}
