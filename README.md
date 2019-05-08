@@ -1,10 +1,13 @@
 # TinyEvent
 极简的事件系统
 
+![](https://img.shields.io/badge/golang-v0.0.3-blue.svg)
+![](https://img.shields.io/github/license/zjxpcyc/tinyevent.svg)
 
 ## Install
 ```bash
-go get github.com/zjxpcyc/tinyevent@va.b.c
+// x.y.z 是版本号
+go get github.com/zjxpcyc/tinyevent@vx.y.z
 ```
 
 ## Useage
